@@ -18,6 +18,9 @@ def processCommand(c) :
         
     elif "open youtube" in c.lower() :
         webbrowser.open("https://youtube.com")
+        
+    elif "open WhatsApp" in c.lower() :
+        webbrowser.open("https://web.whatsapp.com/")
 
     elif "open facebook" in c.lower() :
         webbrowser.open("https://facebook.com")
@@ -25,9 +28,14 @@ def processCommand(c) :
     elif "open instagram" in c.lower() :
         webbrowser.open("https://instagram.com")
 
+    elif c.lower().startswith("play") :
+        song = c.lower().split(" ")[1]
+        link = musicLibrary.music[song]
+        webbrowser.open(link)
+
 
 if __name__ == "__main__" :
-    speak("Hey Goodmorning, I am Shree")
+    speak("Hey Piyush, I am Your Assistant")
 
     while True:
 
@@ -49,12 +57,12 @@ if __name__ == "__main__" :
         
             
             word = r.recognize_google(audio)
-            if (word.lower() == "hey siri") :
-                speak("Yes Piyush, I am here to help you")
+            if (word.lower() == "jarvis") :
+                speak("yes piyush")
 
                 # Listen for command
                 with sr.Microphone() as source:
-                    print("Shree Active")
+                    print("I am Active")
                     audio = r.listen(source)
                     command = r.recognize_google(audio)
 
