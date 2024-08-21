@@ -13,7 +13,10 @@ def speak(text) :
 
 
 def processCommand(c) :
-    if "open google" in c.lower() :
+    if "tell me about me" in c.lower() :
+        speak("My self piyush mishra, I am recentrly graduated from haryana in the stream of computer engineering. I am belog from araria Bihar.")
+
+    elif "open google" in c.lower() :
         webbrowser.open("https://google.com")
         
     elif "open youtube" in c.lower() :
@@ -50,7 +53,6 @@ if __name__ == "__main__" :
             with sr.Microphone() as source:
                 print("Listening")
                 audio = r.listen(source, timeout=2, phrase_time_limit=1)  
-                # , timeout=2, phrase_time_limit=1
 
             command = r.recognize_google(audio)
             print(command)
